@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Console;
+using static System.Net.Mime.MediaTypeNames;
 
 void Multiplicity()
 {
@@ -47,7 +48,7 @@ void CompositeNumber()
     Clear();
     WriteLine("Программа составное число");
     WriteLine("Введите четыре числа через запятую ");
-    string text = ReadLine();
+    string? text = ReadLine();
     string[] textsplit = text.Split('\n');
     foreach (string str in textsplit)
     {
@@ -58,6 +59,27 @@ void CompositeNumber()
         }
     
     }
+}
+
+void PermutationNumbers()
+{
+    Clear();
+    WriteLine("Программа перестановки введённых чисел");
+    WriteLine("Введите число не менее двух символов");
+    string? NumberText = ReadLine();
+    char[] NumberChar = NumberText.ToCharArray();
+    WriteLine("Веедите порядковый номер первого числа");
+    int NumberReplace1 = Convert.ToInt32(ReadLine());
+    NumberReplace1 -= 1;
+    WriteLine("Введите порядковый номер второго числа");
+    int NumberReplace2 = Convert.ToInt32(ReadLine());
+    NumberReplace2 -= 1;
+    var Buffer = NumberChar[NumberReplace1];
+    NumberChar[NumberReplace1] = NumberChar[NumberReplace2];
+    NumberChar[NumberReplace2] = Buffer;
+    NumberText = new string(NumberChar);
+    int Number = Convert.ToInt32(NumberText);
+    WriteLine("Изменённое число" + Number);
 }
 
 void Temperature()
@@ -78,11 +100,11 @@ void Temperature()
     {
         case 1:
             F = (Temperature * 9) / 5 + 32;
-            WriteLine(F);
+            WriteLine("Температура по фарингейту: " + F);
             break;
         case 2:
             C = (Temperature - 32) * 5 / 9;
-            WriteLine(C);
+            WriteLine("Температура по цельсию: " + C);
             break;
     
     }
@@ -137,10 +159,10 @@ WriteLine("Введите номер программы: ");
 WriteLine("1 - Программа \"кратность 5 - 3\" ");
 WriteLine("2 - Программа \"расчёт процентов\"");
 WriteLine("3 - Программа \"составное число\" ");
-WriteLine("4 - Программа ");
+WriteLine("4 - Программа \"перестановка введённых чисел\"");
 WriteLine("5 - Программа ");
 WriteLine("6 - Программа \"перевод температуры из Цельсия в Фарингейта и наоборот\" ");
-WriteLine("7 - Программа \"Чётные числа из диапазона\"");
+WriteLine("7 - Программа \"чётные числа из диапазона\"");
 WriteLine("8 - Выход из программы ");
 Write(">> ");
 int NumberMenu = Convert.ToInt32(ReadLine());
@@ -163,6 +185,9 @@ int NumberMenu = Convert.ToInt32(ReadLine());
             Read();
             break;
         case 4:
+            PermutationNumbers();
+            Write("Для продолжения нажмите ENTER");
+            Read();
             break;
         case 5:
             break;
