@@ -1,7 +1,9 @@
-﻿using System.ComponentModel;
+﻿
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static System.Console;
 using static System.Net.Mime.MediaTypeNames;
+
 
 void Multiplicity()
 {
@@ -83,6 +85,17 @@ void PermutationNumbers()
     WriteLine();
 }
 
+void Date()
+{
+Clear();
+    WriteLine("Программа вычисления сезона и дня недели по дате");
+    WriteLine("Введите любую дату");
+    string? DateTime = ReadLine();
+    DateTime dateTime = Convert.ToDateTime(DateTime);
+    WriteLine(dateTime.DayOfWeek);
+    //DateTime dateTime = new DateTime()
+}
+
 void Temperature()
 {
     Clear();
@@ -161,7 +174,7 @@ WriteLine("1 - Программа \"кратность 5 - 3\" ");
 WriteLine("2 - Программа \"расчёт процентов\"");
 WriteLine("3 - Программа \"составное число\" ");
 WriteLine("4 - Программа \"перестановка введённых чисел\"");
-WriteLine("5 - Программа ");
+WriteLine("5 - Программа \"вычисление сезона и дня недели\"");
 WriteLine("6 - Программа \"перевод температуры из Цельсия в Фарингейта и наоборот\" ");
 WriteLine("7 - Программа \"чётные числа из диапазона\"");
 WriteLine("8 - Выход из программы ");
@@ -191,6 +204,9 @@ int NumberMenu = Convert.ToInt32(ReadLine());
             Read();
             break;
         case 5:
+            Date();
+            Write("Для продолжения нажмите ENTER");
+            Read();
             break;
         case 6:
             Temperature();
