@@ -79,7 +79,8 @@ void PermutationNumbers()
     NumberChar[NumberReplace2] = Buffer;
     NumberText = new string(NumberChar);
     int Number = Convert.ToInt32(NumberText);
-    WriteLine("Изменённое число" + Number);
+    WriteLine("Изменённое число " + Number);
+    WriteLine();
 }
 
 void Temperature()
