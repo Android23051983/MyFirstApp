@@ -92,8 +92,32 @@ Clear();
     WriteLine("Введите любую дату");
     string? DateTime = ReadLine();
     DateTime dateTime = Convert.ToDateTime(DateTime);
-    WriteLine(dateTime.DayOfWeek);
-    //DateTime dateTime = new DateTime()
+    string? Season = " ";
+    switch (dateTime.Month)
+    {
+        case 12:
+        case 1: 
+        case 2:
+            Season = "Winter";
+            break;
+        case 3:
+        case 4:
+        case 5:
+            Season = "Spring";
+            break;
+        case 6:
+        case 7:
+        case 8:
+            Season = "Summer";
+            break;
+        case 9:
+        case 10:
+        case 11:
+            Season = "Autumn";
+            break;
+    }
+    WriteLine(Season + "\t" + dateTime.DayOfWeek);
+    
 }
 
 void Temperature()
